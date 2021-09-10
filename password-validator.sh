@@ -4,7 +4,6 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 PASSWORD=$1
 
-
 # If the password length are less than 10.
 if [ "${#PASSWORD}" -lt "10" ] 
     then
@@ -19,11 +18,23 @@ elif [[ ! "$PASSWORD"  =~ ^[[:alnum:]]+$ ]];
 elif [[  "$PASSWORD"  =~ ^[[:digit:]]+$ ]] || [[  "$PASSWORD"  =~ ^[[[:alpha:]]+$ ]];
     then
         echo -e "${RED}Invalid password, password must contain both numeric and alphabetic characters."
+        if [[  "$PASSWORD"  =~ ^[[:digit:]]+$ ]];
+            then    
+                echo -e "${RED}Missing: Alphabetic characters."
+        else
+                echo -e "${RED}Missing: Numeric characters."
+        fi
         exit 1
 # If the password not contain upper or lower letters.
 elif [[ ! "$PASSWORD" =~ [[:lower:]] ]] || [[ ! "$PASSWORD" =~ [[:upper:]] ]];
     then
         echo -e "${RED}Invalid password, password must contain at least one capital and one small letter."
+        if [[ ! "$PASSWORD" =~ [[:lower:]] ]];
+            then
+                echo -e "${RED}Missing: Lowercase letters."
+        else
+                echo -e "${RED}Missing: Uppercase letters."
+        fi
         exit 1
 # Valid Password.
 else
