@@ -9,6 +9,9 @@
 3.Contain both alphabetic and numeric characters.<br/>
 4.Contain at least 1 uppercase and lowercase letters.<br/>
 
+### Optional flags:
+-f      To retrieve the password from a file.
+
 ### How to use:
 1.run ./password-validator.hs "***Your password***"<br/>
-
+2.run ./password-validator.hs **-f** "***/mypath/password.txt***"
