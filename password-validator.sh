@@ -2,7 +2,25 @@
 
 GREEN='\033[0;32m'
 RED='\033[0;31m'
-PASSWORD=$1
+ARG=$1
+
+# If -f option added then retrive password from file.
+if [ "$ARG" == "-f" ]
+    then 
+        MYPATH=$2 #Stores the path entered by the user
+#       If file not exists then exit.
+        if [ ! -e "$MYPATH" ]
+            then
+                echo -e "${RED}File not exists."
+                exit 1
+#       If file exists then PASSWORD=file content.
+        else 
+            PASSWORD=$(<"$MYPATH")
+        fi  
+# If the option -f not added, then read the arg from command line.
+else
+    PASSWORD=$ARG
+fi
 
 # If the password length are less than 10.
 if [ "${#PASSWORD}" -lt "10" ] 
