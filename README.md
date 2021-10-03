@@ -13,5 +13,5 @@
 -f      To retrieve the password from a file.
 
 ### How to use:
-1.run ./password-validator.hs "***Your password***"<br/>
-2.run ./password-validator.hs **-f** "***/mypath/password.txt***"
+1.run ./password-validator.sh "***Your password***"<br/>
+2.run ./password-validator.sh **-f** "***/mypath/password.txt***"
