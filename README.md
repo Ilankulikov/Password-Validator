@@ -1,4 +1,5 @@
-# Second Week Project - Password Validator
+## Week 2 Project
+# Password Validator
 
 ## Bash Script
 ***This is basic password validation bash script.***
